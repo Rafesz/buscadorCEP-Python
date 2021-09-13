@@ -18,7 +18,7 @@ def main():
             break
         cep = values[0]
         if(tamanhoCep(cep) == False or caracteresCep(cep) == False): 
-            print("Cep inválido!\n")
+            print("CEP inválido!\n")
         else:
             print('Buscando... {}\n============================='.format(cep))
             recebeCep(cep)
@@ -37,7 +37,7 @@ def recebeCep(cep):
     r = requests.get('https://viacep.com.br/ws/{}/json/'.format(cep))
     objeto = json.loads(r.text)
     for k, v in objeto.items():
-        if(k == 'erro'): print("\nCep inexistente!")
+        if(k == 'erro'): print("\nCEP inexistente!")
         else:
             if(k != '' and v != ''):
                 print("{} - {} ".format(k.upper(), v.upper()))
